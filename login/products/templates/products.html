@@ -1,0 +1,42 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<h1 class="fs-2">Productos</h1>
+
+{% if total_products == 0 %}
+    <h3>Aún no se han agregado productos.</h3>
+{% elif total_products == 1 %}
+    <h3>Único producto registrado.</h3>
+{% else %}
+    <h3>Lista de los {{ total_products }} productos.</h3>
+{% endif %}
+
+{% for product in products %}
+
+<div class="py-3">
+
+  <div class="card card-body bg-black">
+    <div class="row">
+
+      <div class="col-3">
+        <img class="img-fluid" src="{{product.image.url}}" alt="{{product.name}}">
+
+      </div>
+      <div class="col-9">
+
+        <h1>{{product.name}}</h1>
+        <p>{{product.description|striptags|truncatechars:100}}</p>
+        <p>{{product.date|date:'M d Y'|upper}}</p>
+        <p>Subido por: {{ product.user.username }}</p>
+        <a href="{% url 'productDetail' product.id %}">{{product.name}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endfor %}
+
+
+
+{% endblock %}

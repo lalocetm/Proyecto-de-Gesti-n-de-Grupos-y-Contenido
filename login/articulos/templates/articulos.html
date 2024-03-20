@@ -1,0 +1,42 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<h1 class="fs-2">Articulo</h1>
+
+{% if total_products == 0 %}
+    <h3>Aún no se han agregado articulos.</h3>
+{% elif total_products == 1 %}
+    <h3>Único articulo registrado.</h3>
+{% else %}
+    <h3>Lista de los {{ total_articulos }} articulos.</h3>
+{% endif %}
+
+{% for articulo in articulos %}
+
+<div class="py-3">
+
+  <div class="card card-body bg-black">
+    <div class="row">
+
+      <div class="col-3">
+        <img class="img-fluid" src="{{articulo.image.url}}" alt="{{articulo.title}}">
+
+      </div>
+      <div class="col-9">
+
+        <h1>{{articulo.title}}</h1>
+        <p>{{articulo.content|striptags|truncatechars:100}}</p>
+        <p>{{articulo.date_published|date:'M d Y'|upper}}</p>
+        <p>Subido por: {{ articulo.user.username }}</p>
+        <a href="{% url 'articleDetail' articulo.id %}">{{articulo.title}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endfor %}
+
+
+
+{% endblock %}

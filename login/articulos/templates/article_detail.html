@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}
+{% block content %}
+
+<div class="text-center">
+
+  <h1>{{articulo.title}}</h1>
+  <h2 class="my-2 h5 text-muted">{{articulo.date_published|date:'F jS Y'}}</h2>
+
+  <img src="{{articulo.image.url}}" alt="{{articulo.name}}" class="img-fluid">
+
+  <p>Subido por: {{ articulo.user.username }}</p>
+
+  <div class="my-4">
+
+  {{articulo.content|safe}}
+  </div>
+</div>
+
+{% endblock %}

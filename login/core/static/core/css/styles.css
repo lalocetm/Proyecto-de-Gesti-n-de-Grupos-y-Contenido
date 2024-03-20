@@ -1,0 +1,131 @@
+.user-groups-box {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.user-info {
+  margin-bottom: 10px;
+}
+
+.user-info strong {
+  font-weight: bold;
+}
+
+.user-groups .group {
+  background-color: #f0f0f0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.user-groups .no-group {
+  color: #888;
+}
+
+.user-groups .group:last-child {
+  margin-right: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.welcome-msg {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+h4 {
+    font-size: 18px;
+    margin: 0;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+CSS
+.container-fluid {
+    font-family: Arial, sans-serif;
+    padding-top: 50px;
+}
+
+.card {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 40px;
+}
+
+/* Ajusta el ancho de los elementos del formulario */
+.form-group input,
+.form-group textarea {
+    /* width: 100%; */ /* Opcional si se usa la clase col-sm-6 */
+}
+
+/* Ajusta el ancho máximo de las etiquetas */
+.form-group label {
+    max-width: 200px; /* O ajusta según sea necesario */
+}
+
+/* Ajusta el estilo del input de tipo file */
+.form-control-file {
+    /* Ajusta el estilo según sea necesario */
+}
+
+/* Aumenta el ancho del contenedor principal */
+.container-fluid {
+    max-width: 960px;
+}
+
+/* Aumenta el ancho del card */
+.card {
+    max-width: 800px;
+}
+
+/* Soluciona el overflow del input y textarea */
+.form-group input,
+.form-group textarea {
+    /* Opcion 1: Asignar un ancho fijo */
+    width: 400px;
+
+    /* Opcion 2: Usar clases de Bootstrap */
+    /* class="col-sm-6" */
+
+    /* Opcion 3: Agregar scroll horizontal */
+    /* overflow-x: scroll; */
+}

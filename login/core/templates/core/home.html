@@ -1,0 +1,83 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <h3>Inicio</h3>
+    {% if request.user.is_authenticated %}
+    <hr>
+    <div class="welcome-msg">
+        <h4>Bienvenido, {{ request.user.first_name|default:"Usuario" }} {{ request.user.last_name|default:"Anónimo" }}</h4>
+
+    </div>
+    {% endif %}
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lacinia nisi sit amet velit pretium, eget porta
+        sapien egestas. Suspendisse nec congue risus. Integer eu commodo dolor. Mauris ut orci malesuada, congue dolor
+        in, ullamcorper elit. Aenean in lorem dapibus, congue tellus placerat, pharetra mauris. Nullam quis libero
+        ornare, elementum est vel, vulputate ligula. Proin sit amet sagittis nunc. Quisque aliquam mi et mi venenatis,
+        ut commodo nibh tempor.</p>
+
+<h2>Últimos Productos</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre del Producto</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in latest_products %}
+        <tr>
+            <td>{{ product.name }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+    <h2>Últimos Artículos</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Título</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for article in latest_articles %}
+        <tr>
+            <td>{{ article.title }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+<div class="user-groups-box">
+    <h2>Usuarios y sus Grupos</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Usuario</th>
+                <th>Grupo</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user_info in users_with_groups %}
+            <tr>
+                <td>{{ user_info.user.username }}</td>
+                <td>
+                    {% if user_info.groups %}
+                        {% for group in user_info.groups %}
+                            {{ group }}
+                            {% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        No tiene grupos asignados.
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}
